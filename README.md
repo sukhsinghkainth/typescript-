@@ -208,6 +208,15 @@ here we can't get any error which is concern for us this will break entire appli
  const getHello(s:string):string => {
  return "" }
 ```
+#map function in typescript 
+
+```typescript
+const heros =['skhtiman',"spidormon","ironman"]
+heros.map(heros=>{ return `heros is ${heros}`})
+export {}
+```
+
+
 
 
 
