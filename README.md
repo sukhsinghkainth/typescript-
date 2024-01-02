@@ -208,13 +208,36 @@ here we can't get any error which is concern for us this will break entire appli
  const getHello(s:string):string => {
  return "" }
 ```
-#map function in typescript 
+# map function in typescript 
 
 ```typescript
 const heros =['skhtiman',"spidormon","ironman"]
 heros.map(heros=>{ return `heros is ${heros}`})
-export {}
 ```
+if we hover over map function it automatically predicts  that hero is going to be the type of string because this array is of type of string 
+
+if we change array 
+
+`heros = [1,2,3]`
+
+it will show us automatically changes the type of array as number 
+
+## but one thing which you should be really careful is the return type of this method 
+
+```typescript
+const heros =['skhtiman',"spidormon","ironman"]
+heros.map((heros):string =>{
+return 1 )
+```
+here it's give us error because we define the return type as string 
+
+another function example 
+
+
+
+
+
+
 
 
 
