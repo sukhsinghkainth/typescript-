@@ -16,6 +16,8 @@ let email = user.email // error
 ```
 here we got an error
 
-how to install ?
+>how to install ?
 there will be two different installation 
+
+
 
