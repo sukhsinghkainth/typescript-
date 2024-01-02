@@ -10,7 +10,12 @@ we write type-script then it's compiled to the javascript , it is the developmen
 it's wrapper around the js 
 
 example : - 
+```typescript 
 let user = {name : "sukh" , age: 29}
-let email = user.email 
+let email = user.email // error
+```
+here we got an error
 
-here we got an error from typescript as there is not any email option there is user 
+how to install ?
+there will be two different installation 
+
