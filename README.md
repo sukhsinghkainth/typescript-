@@ -1,44 +1,46 @@
-# typescript-
 
-typescript is the superset of the javascript 
-Static checking :-
-many languages built in static checking just like java , golang  
-it's just for static checking type script is used for static checking it analyze the code as we write (type) 
-we use TSX for typescript 
+# TypeScript
 
-we write type-script then it's compiled to the javascript , it is the development tool only it's still runs js
-it's wrapper around the js 
+TypeScript is a superset of JavaScript, providing static checking and additional features. It is often used for larger codebases where static analysis can catch potential errors before runtime.
 
-example : - 
-```typescript 
-let user = {name : "sukh" , age: 29}
-let email = user.email // error
+## Static Checking
+
+Many programming languages, such as Java and Go, incorporate built-in static checking. TypeScript brings this feature to JavaScript by analyzing the code as it is written, enforcing type safety. For static checking, TypeScript utilizes TSX, an extension of JSX, commonly used with React.
+
+```typescript
+let user = { name: "sukh", age: 29 };
+let email = user.email; // Error: Property 'email' does not exist on type '{ name: string; age: number; }'.
 ```
-here we got an error
 
->how to install ?
-there will be two different installation
+In the example above, TypeScript catches the error, providing valuable feedback during development.
 
-global installation ,  
-first of all install node just go to the nodjs website and just install and agree all kind of stuff 
+## Installation
 
->npm install -g typescript
-  for globally install typescript write following command in terminal 
+### Global Installation
 
-typescript 
-```typescript 
-let user = {name: "sukh", age:10}
-console.log("helo")
-console.log(user.age)
+Before installing TypeScript, ensure Node.js is installed on your system. Visit the Node.js website to download and install Node.js. Afterward, execute the following command for global TypeScript installation:
+
+```bash
+npm install -g typescript
 ```
-it's a classic code of  javascript 
-but this hole thig can not be executed at all in  the ts format it's not going to work if we put it into production 
 
-and there tsc works 
->tsc  -- name the file --
-its convert your type script into javascript
+This installs TypeScript globally, making the `tsc` command available in the terminal.
 
-## types in javascript 
->number string boolean  
+## TypeScript Usage
 
+Once TypeScript is installed, you can create TypeScript files with a `.ts` extension. For example:
+
+```typescript
+let user = { name: "sukh", age: 10 };
+console.log("hello");
+console.log(user.age);
+```
+
+This code, written in TypeScript, will not run in a production environment. To convert it to JavaScript, use the TypeScript compiler (`tsc`):
+
+```bash
+tsc yourfile.ts
+```
+
+This compiles the TypeScript code into JavaScript, allowing it to be executed.
 
