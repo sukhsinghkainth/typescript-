@@ -200,13 +200,16 @@ here we can't get any error which is concern for us this will break entire appli
    console.log(add(2))
 ```
 
-***how we do it in an arrow function ???***
+**how we do it in an arrow function ???**
+
 -`here is how :-`
 
 ```typescript
  const getHello(s:string):string => {
  return "" }
 ```
+
+
 
  
 
