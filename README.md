@@ -46,27 +46,35 @@ This compiles the TypeScript code into JavaScript, allowing it to be executed.
 
 ## Types : 
 
-there are many types available in the typescript
-###number string boolean Null undefined void Object Array Tuples never unknown 
+## Types
+
+In TypeScript, there are various types that you can use:
+
+- `number`
+- `string`
+- `boolean`
+- `Null`
+- `undefined`
+- `void`
+- `Object`
+- `Array`
+- `Tuples`
+- `never`
+- `unknown`
 
 ## syntax
 
 ```typescript
 let varableame: type = value
 ```
-## example
+### example
+
 ```typescript
 let greeting: string = "hello ji"
 console.log(greeting)
 ```
-run the file with tsc and its create a new javascript file 
+Running the file with `tsc` will create a new JavaScript file. To avoid the error "cannot redeclare block-scoped variable 'greetings'", add `exports {}` at the end of the file.
 
-for remove the error cannot redeclare block-scoped variable 'greetings'
-
-we just simple add in the ending of the file
-```typescript
-exports {}
-```
 
 later on if we assign number to the greeting it's not allowed in the typescript 
 and if we add dot . in greetings it's show all the methods of the string it's actuaclly gives suggestions if we write wrong in methods 
@@ -78,11 +86,9 @@ how to define no
 ```typescript
 let userId: number = 333333
 ```
-use userId. and use any method suggested there 
-like
-```typescript
-usesrId.toFixed()
-```
+use `userId.` and use any method suggested there 
+like `userId.toFixed()`
+
 even you don't need to put : everytime ts is smart enough to detect the type 
 
 if we simply use 
