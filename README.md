@@ -44,16 +44,143 @@ tsc yourfile.ts
 
 This compiles the TypeScript code into JavaScript, allowing it to be executed.
 
-##Types : 
+## Types : 
 
 there are many types available in the typescript
 ###number string boolean Null undefined void Object Array Tuples never unknown 
 
-##syntax
+## syntax
 
 ```typescript
 let varableame: type = value
 ```
+## example
+```typescript
+let greeting: string = "hello ji"
+console.log(greeting)
+```
+run the file with tsc and its create a new javascript file 
+
+for remove the error cannot redeclare block-scoped variable 'greetings'
+
+we just simple add in the ending of the file
+```typescript
+exports {}
+```
+
+later on if we assign number to the greeting it's not allowed in the typescript 
+and if we add dot . in greetings it's show all the methods of the string it's actuaclly gives suggestions if we write wrong in methods 
+
+#number 
+
+how to define no 
+
+```typescript
+let userId: number = 333333
+```
+use userId. and use any method suggested there 
+like
+```typescript
+usesrId.toFixed()
+```
+even you don't need to put : everytime ts is smart enough to detect the type 
+
+if we simply use 
+
+```typescript
+let userId = 33333
+```
+### it's automatically detects its a number 
+
+#boolean 
+
+```typescript
+let isloogedIn: boolean = false
+```
+
+# any 
+## it's a not a good practise to use any keyword 
+
+### exmple here
+```typescript
+
+let hero ;
+function getHero(){
+return "shaktimaan"
+}
+hero = gethero()
+
+// here when we hover on the hero it's show's the type as any
+we relly want to avoid these cases 
+```
+## when in such situations where typescript can-not find out what value came up later on in future , it puts that as any which is a kind of a gateway from doing the things any is used whenever you don't want a particular value to cause typechecking errors. it's is  not a special type we assign not a string not a boolean it's simply a marker in the TS it's basically of the typechecking 
+
+
+```typescript
+
+let hero: string ;
+function getHero(){
+return "shaktimaan"
+} 
+hero = gethero()
+
+```
+
+# how functions are defined ?
+
+### example : - 
+```typescript 
+function addTwo(num){
+return num +2 
+}
+addTwo(5)
+```
+it might be ok we add a number to it 
+but the problem is if we hover over it it show us --any--
+
+ ```typescript 
+function addTwo(num){
+num.toUpperCase()
+return num +2 
+}
+addTwo(5)
+```
+### like here we can simply assign values like toUpperCase() to  a number 
+
+in the case of variables , it's optional , it infers 
+the type really nicely so there is no problem , in the case of functions, it is really compulsory to define the type
+
+## if we have multiple parameters we are simply define type to the individuls
+like we done in signUpUser funciton given below :
+
+```typescript
+function signUpUser(name: string , email: String, password:string ){
+ console.log(name,password,email)
+}
+
+signUpUser("sukh","sukh@email.com","1234")
+```
+
+### if we want to pass only two values ? how can we pass the default value ?
+
+```typescript 
+function signUpUser(name: string , email: String, isPaid:boolean = false ){
+    console.log(name,isPaid,email)
+   }
+   
+   signUpUser("sukh","sukh@email.com")
+```
+simply provide the default value to the by assign the value 
+
+
+
+
+
+
+
+
+
+
 
 
 
