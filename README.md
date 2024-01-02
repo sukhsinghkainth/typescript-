@@ -17,7 +17,21 @@ let email = user.email // error
 here we got an error
 
 >how to install ?
-there will be two different installation 
+there will be two different installation
 
+global installation ,  
+first of all install node just go to the nodjs website and just install and agree all kind of stuff 
+
+>npm install -g typescript
+  for globally install typescript write following command in terminal 
+
+typescript 
+```typescript 
+let user = {name: "sukh", age:10}
+console.log("helo")
+console.log(user.age)
+```
+it's a classic code of  javascript 
+but this hole thig 
 
 
