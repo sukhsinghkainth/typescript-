@@ -176,7 +176,43 @@ function signUpUser(name: string , email: String, isPaid:boolean = false ){
    
    signUpUser("sukh","sukh@email.com")
 ```
+
 simply provide the default value 
+here is the new question arrived 
+see the following code 
+
+```typescript 
+function addTWo(num: number){
+    return "hello"
+}
+addTWo(6)
+```
+here we can't get any error which is concern for us this will break entire application since we return a string that's why typescript used 
+
+**how to solve ?** 
+```typescript
+ function add(num:number):number{
+    return "hello"
+
+//we can't just return string here
+
+   }
+   console.log(add(2))
+```
+
+***how we do it in an arrow function ???***
+-`here is how :-`
+
+```typescript
+ const getHello(s:string):string => {
+ return "" }
+```
+
+ 
+
+
+
+
 
 
 
