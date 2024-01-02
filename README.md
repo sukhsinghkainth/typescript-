@@ -32,6 +32,13 @@ console.log("helo")
 console.log(user.age)
 ```
 it's a classic code of  javascript 
-but this hole thig 
+but this hole thig can not be executed at all in  the ts format it's not going to work if we put it into production 
+
+and there tsc works 
+>tsc  -- name the file --
+its convert your type script into javascript
+
+## types in javascript 
+>number string boolean  
 
 
