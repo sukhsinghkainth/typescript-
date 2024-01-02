@@ -176,7 +176,8 @@ function signUpUser(name: string , email: String, isPaid:boolean = false ){
    
    signUpUser("sukh","sukh@email.com")
 ```
-simply provide the default value to the by assign the value 
+simply provide the default value 
+
 
 
 
