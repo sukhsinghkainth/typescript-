@@ -44,3 +44,22 @@ tsc yourfile.ts
 
 This compiles the TypeScript code into JavaScript, allowing it to be executed.
 
+##Types : 
+
+there are many types available in the typescript
+###number string boolean Null undefined void Object Array Tuples never unknown 
+
+##syntax
+
+```typescript
+let varableame: type = value
+```
+
+
+
+
+
+
+
+
+
