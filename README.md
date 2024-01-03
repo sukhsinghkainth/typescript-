@@ -231,7 +231,40 @@ return 1 )
 ```
 here it's give us error because we define the return type as string 
 
-another function example 
+it's a good practice to explicitly metnion whoever is using this function knows more about the defination of the funciton
+so if the function returns void  that means it's not going to return anything ever 
+
+#### never 
+neither it's void because void means return nothing , but there is never as well, which never return a value very close to void but it's use to handle some kind of error 
+
+a function user never as return type `throw` an exception or terminates execution of the program 
+
+## objects
+
+```
+const usr ={
+    name:"sukh",
+    email:"sukh@gmail.com",
+    isActive:true
+}
+```
+
+desigining an object like this doesn't really make sense and you won't be using it too much . the use case of the object is through the functions you have to actullay pass the objects into the funtions or you have to return some objects through the function 
+
+```
+function user({name:string, ispaid:boolean}){  
+}
+
+user({name:"sukh",ispaid:true})
+```
+
+now we can see a function returning a object here it is 
+```
+createCourse():{}{}
+```
+the first {} is return type  and second {} is for function defination  
+
+
 
 
 
