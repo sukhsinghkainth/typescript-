@@ -265,6 +265,34 @@ createCourse():{}{}
 the first {} is return type  and second {} is for function defination  
 
 
+function example 
+
+```
+function createCourse():{name:stirng, price:number}{
+    return {name:"reactjs",price:300}
+}
+```
+
+
+this is not ecceptable 
+```
+createCourse({name:"sukh",price:233,email:"sukh@gmail.com"})
+
+```
+we can only pass the parameters that function accepts this is not allowed 
+
+### odd behaviour (bad behaviour of object) :-
+```
+let newuser = {name:"sukh",ispaid:false,email:"s@s.com"}
+
+createuser(newuser)
+```
+
+here this time i am able to pass much more information than what is expected in the function defination previously it was giving error 
+
+
+
+
 
 
 
