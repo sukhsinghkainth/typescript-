@@ -291,6 +291,115 @@ createuser(newuser)
 here this time i am able to pass much more information than what is expected in the function defination previously it was giving error 
 
 
+-----------
+
+# type alias
+
+ it’s common to use the same type more than once and refer to it by a single name. it's a keyword in typescript 
+
+```ts
+type User ={
+    name: string;
+    email:string;
+    isActive:boolean 
+}
+```
+advantage of craeting a type like this is whenever there are methods like
+ ```js
+function createUser(user:User):User{
+    return {name:"",email:"",isActive:ture}
+}
+
+createUser({name:"",email:"",isActive:true})
+```  
+
+the return type of the function should also the User
+
+
+  we want all the information to pass  what we are doing interlly is kind of creating the data types here 
+
+
+-----------
+# read only and optional
+
+readonly is the keyword you can just put it on to anyoene and now you won't be able to change that 
+ 
+```ts
+type User ={
+    readonly _id: string
+    name: string;
+    email:string;
+    isActive:boolean 
+    creditDetail?: number // This property is optional
+}
+
+let myUser : User ={
+    _id : "123",
+    name : "sukh",
+    email : "s@gmail.com",
+    isActive : ture,
+}
+
+// we cam say that 
+
+myUser.email = "sukh@gmail.com"
+
+// but in case of 
+
+myUser._id = 123
+
+
+```
+
+`creditDetail?: number`
+is the syntax to make optional 
+
+---
+## array
+
+```ts
+/**
+ * Array Declarations:
+ */
+
+// An array of strings representing superheroes.
+const heroes: string[] = [];
+
+// An array of numbers representing the powers of superheroes.
+const heroPower: number[] = [];
+
+// An alternative syntax using the Array type to declare an array of numbers representing hero abilities.
+const heroAbility: Array<number> = [];
+
+// Adding elements to arrays.
+heroes.push("spiderman");
+heroPower.push(33);
+
+/**
+ * Two-Dimensional Array:
+ */
+
+// A two-dimensional array representing colors and numerical values.
+const twoDimensionArray: number[][] = [
+    [255, 255, 255],
+    [24, 2, 3]
+];
+
+type User = {
+    name: string;
+    email: string;
+};
+
+// An array of users.
+const allUsers: User[] = [];
+
+// Adding a user to the array.
+allUsers.push({
+    name: "sukh",
+    email: "sukh@gmail.com"
+});
+
+```
 
 
 
