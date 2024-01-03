@@ -400,6 +400,101 @@ allUsers.push({
 });
 
 ```
+---
+
+## union 
+
+instead of using any its highely recomend to use union datatype , which allows you to be into situation where we are not sure what type of data come in it might be a number or a string a combination of two three or more types of data you can include into a variable or an array 
+
+```ts
+
+let score : number|string = 33
+
+score = "string"
+
+//now score can use either  string or a number
+// don't add more than three datatypes 
+
+```
+---
+## Using Union for types 
+
+```ts
+
+type admin = {
+    username : string,
+    id : string
+}
+type user = {
+    name : string ,
+    password : string
+}
+
+//user sukh can be a user and a admin  
+
+let  sukh  : user | admin = {name:'sukh',password:"123"}
+
+```
+#### one more example 
+
+```js
+function DbConnection(id: string|number)
+{
+    return console.log(`db id is ${id}`); 
+}
+
+DbConnection("3")
+DbConnection(2)
+```
+
+
+we can use `|` for make union 
+
+# Union in Arrays
+We can use union types in arrays by specifying the valid data types within parentheses and separated by `|`
+
+## Example: Array with Union Types
+typescript
+```ts
+const data3: (string | number | boolean)[] = ["2", "2", 3, true];
+```
+
+---
+here we can assign `string` `number` `boolean` in array
+
+syntax of using union 
+
+```js
+(string|number|...more)
+```
+
+---
+# tuple
+
+it's just an array a kind of specialized array that is given to us by `typescript` with some restrictions on it 
+
+tuples are used when we want data in precise order usually in `API` call because the `API` structure data is always in a very specific fomat 
+
+
+```ts
+
+let User :(string|number)[] = ["1",2]
+
+
+// here is the example of tuple 
+
+let Tuple:[string,boolean,number]=["sukh",true,2]
+
+Tuple.push(true)
+
+// at index 0 is string 
+// at index 1 is boolean 
+// at index 2 its number 
+
+// we can't chage the order 
+
+export {}```
+
 
 
 
