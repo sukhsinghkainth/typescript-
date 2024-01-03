@@ -477,23 +477,19 @@ tuples are used when we want data in precise order usually in `API` call because
 
 
 ```ts
-
 let User :(string|number)[] = ["1",2]
-
 
 // here is the example of tuple 
 
 let Tuple:[string,boolean,number]=["sukh",true,2]
 
+// we can use push method even we try tuple 
 Tuple.push(true)
 
-// at index 0 is string 
-// at index 1 is boolean 
-// at index 2 its number 
+// at index[0] string index[1] boolean index[2] number 
 
 // we can't chage the order 
-
-export {}```
+```
 
 
 
