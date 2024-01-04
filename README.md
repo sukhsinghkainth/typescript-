@@ -727,3 +727,41 @@ const sukh = new User("sukh@gmail.com", "sukh");
 With the constructor, we directly provide the string values without the need for explicit parameter names, resulting in cleaner and more concise code.
 
 ---
+
+# Public and Private Members in TypeScript Classes
+
+If there's a need to restrict access to certain class members, TypeScript provides the `private` and `public` keywords.
+
+### Private Member:
+
+For instance, if we want to make the `email` property not accessible from outside the class, we can declare it as `private`:
+
+```typescript
+class User {
+    private email: string;
+    name: string;
+
+    constructor(email: string, name: string) {
+        this.email = email;
+        this.name = name;
+    }
+}
+```
+
+Attempting to access `sukh.email = "sukh"` would result in an error, and hovering over it would show: 
+- **Property 'email' is private and only accessible within class User**
+
+### Public Members:
+
+By default, class members (excluding those marked as `private`) are considered `public`. An alternative, more concise way to declare properties is by using shorthand notation in the constructor:
+
+```typescript
+class User {
+    constructor(public email: string, public name: string) {
+    }
+}
+```
+
+In this shortcut notation, both `email` and `name` are implicitly marked as `public`. This makes the code cleaner and more readable.
+
+---
