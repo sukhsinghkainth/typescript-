@@ -727,5 +727,3 @@ const sukh = new User("sukh@gmail.com", "sukh");
 With the constructor, we directly provide the string values without the need for explicit parameter names, resulting in cleaner and more concise code.
 
 ---
-
-This revised explanation aims to provide a clearer understanding of the code and the benefits of type declarations in TypeScript classes.
