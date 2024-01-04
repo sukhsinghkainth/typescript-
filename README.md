@@ -555,3 +555,177 @@ console.log(plainSeat)
 const plainSeat = 0 /* SeatChoice.first */;
 console.log(plainSeat);
 ```
+
+## Interfaces 
+
+interface is more like a class but lose form of class very broad overview , interface does't have details of how it will work but these are basic overview of that whenever you're creating a user for example these are the fill which are compulsory these are the methods which ae the compulsory now how to implement them that is so totally up to you , `type` and `interface` shares lot of similarity 
+
+#### example syntax 
+
+```ts
+interface User{
+    readonly dbId : number
+    email : string,
+    userId : number
+    googleid?: string 
+}
+
+const sukh:User = {dbId : 22, email:"sukh@gmail.com",
+userId:123}
+
+```
+
+we can use `readonly` and `optional :?` in interface also as we discuss these erlier same as that 
+
+#### what really makes interface intersting is the defination of the function 
+
+```ts
+
+interface User{
+    startTrail():string
+    getCoupon(couponName:string):number
+}
+
+const sukh:User = {
+startTrail:()=>{
+    return "trail is started"
+},
+
+getCoupon:(name:"sukh")=>{
+return 10
+}
+
+}
+```
+
+here we don't need to match `couponName` or we can say we write anything we like no need to replicate `name:"sukh"` we are providing it is just a reference that you providing a coupon name which should be string if we give it a number it will show us error , all are the compulsory parameters that we are given in funciton defination
+
+### reopening the interface 
+
+interface also comes with an extension which some people call it as reopening the interface that's nothing just adding more properties into this let's see what reopening is 
+
+### example 
+```ts
+interface One{
+    readonly UserId: string
+    emil: string
+    isActive : boolean
+}
+```
+
+we can write user again and it is totally allowed and here we can 
+
+```ts
+interface One{
+    githubToken : string
+}
+```
+
+## Inheritance in interface 
+
+extend keyword is used for inheritance you get all the properties that are there for admin but you also have your own see the example given below 
+
+### example 
+
+```ts
+interface User{
+    name : string
+    email : string
+    readonly userId: number
+}
+
+interface Admin extends User{
+    Role : "Student" | "Admin"
+}
+```
+
+Certainly! Let's improve the formatting and language for better readability:
+
+---
+
+## Difference Between Type Aliases and Interfaces in TypeScript
+
+According to the original `TypeScript` documentation:
+
+### Interfaces:
+
+- **Extending an Interface:** To extend an interface, simply use the `extend` keyword.
+
+    ```typescript
+    interface Animal {
+        name: string;
+    }
+
+    interface Bear extends Animal {
+        honey: boolean;
+    }
+    ```
+
+- **Modifiability:** Interfaces are mutable; you can add new fields to an existing interface after its creation.
+
+### Type Aliases:
+
+- **Extending a Type via Intersections:** When extending a type, you can use intersections.
+
+    ```typescript
+    type Animal = {
+        name: string;
+    }
+
+    type Bear = Animal & {
+        honey: boolean;
+    }
+    ```
+
+- **Immutability:** A type cannot be changed after being created. However, you can add new fields to an existing type.
+
+---
+
+Certainly! Let's enhance the explanation and make the code snippet more readable:
+
+---
+
+# Classes in TypeScript
+
+In TypeScript classes, we can clearly define the types of properties in advance. Consider the following example:
+
+```typescript
+class User {
+    email: string;
+    name: string;
+
+    constructor(email: string, name: string) {
+        this.email = email;
+        this.name = name;
+    }
+}
+```
+
+Here, we explicitly specify that both `email` and `name` should be of type string.
+
+### Type Declaration in Constructor:
+
+In the constructor, we refer to the predefined types:
+
+```typescript
+constructor(email: string, name: string) {
+    this.email = email;
+    this.name = name;
+}
+```
+
+This approach ensures that `email` and `name` must be strings when creating an instance of the `User` class.
+
+### Creating an Object:
+
+To instantiate an object from the class, we don't need to specify the parameter names if a constructor is defined:
+
+```typescript
+const sukh = new User("sukh@gmail.com", "sukh");
+```
+
+With the constructor, we directly provide the string values without the need for explicit parameter names, resulting in cleaner and more concise code.
+
+---
+
+This revised explanation aims to provide a clearer understanding of the code and the benefits of type declarations in TypeScript classes.
