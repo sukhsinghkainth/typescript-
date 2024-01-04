@@ -491,6 +491,64 @@ Tuple.push(true)
 // we can't chage the order 
 ```
 
+## enum 
+
+
+In TypeScript, enums (short for enumerations) allow you to define a set of named constants, making it easier to work with a set of related values. Enums are a way to create a named set of numeric or string constants. Here's a basic overview of how to use enums in TypeScript:
+
+
+
+when i hover on the first it's say it's an enum member and the `SeatChoice.first` is having value of zero (0) , it's a default value 
+we can change it there maybe need where we want to start from a particular no we just change `first = 10` or any number we want , the next value will be 11, 12 and so on for some reason we can break the series by just put `second = 22` yes it's allowed rest of the values follow up 
+
+---
+#### we can assign number strings to enum 
+---
+
+what kind of code is being produced when we write this kind of `typescript` into the `javascript` when we compiled as soon as i declared this `enum` and `IIFE` is being created for me given below 
+
+### example 
+
+```ts 
+"use strict";
+var SeatChoice;
+(function (SeatChoice) {
+    SeatChoice[SeatChoice["first"] = 0] = "first";
+    SeatChoice[SeatChoice["second"] = 1] = "second";
+    SeatChoice[SeatChoice["third"] = 2] = "third";
+})(SeatChoice || (SeatChoice = {}));
+const plainSeat = SeatChoice.first;
+console.log(plainSeat);
+
+```
+
+it's generate too much insase amout of crazy code for the javasciprt , in that case we just put `const` before the `enum` and this will not generate crazy code tis will just generate whatever is necessary 
+
+### example
+
+```ts
+
+//adding const
+
+const enum SeatChoice {
+    first ,
+    second  ,
+    third
+}
+
+const plainSeat :SeatChoice = SeatChoice.first
+console.log(plainSeat)
+
+```
+### after compiling 
+
+```js
+"use strict";
+const plainSeat = 0 /* SeatChoice.first */;
+console.log(plainSeat);
+```
+
+
 
 
 
