@@ -765,3 +765,131 @@ class User {
 In this shortcut notation, both `email` and `name` are implicitly marked as `public`. This makes the code cleaner and more readable.
 
 ---
+
+## getter and setter 
+
+
+In TypeScript, getter and setter methods allow you to control the access and modification of class properties. You can use the `get` and `set` keywords to define **getter** and **setter** methods within a class.
+- Here's an example:
+
+```ts
+class MyClass {
+    private _myProperty: string = "";
+  
+    // Getter method
+    get myProperty(): string {
+      return this._myProperty;
+    }
+  
+    // Setter method
+    set myProperty(value: string) {
+      if (value.length > 5) {
+        this._myProperty = value;
+      } else {
+        console.log("Value must be longer than 5 characters.");
+      }
+    }
+  }
+  
+  // Create an instance of MyClass
+  const myObject = new MyClass();
+  
+  // Use the setter method
+  myObject.myProperty = "Hello, World!";
+  
+  // Use the getter method
+  console.log(myObject.myProperty); // Output: Hello, World!
+  
+  // Trying to set a value with length less than 5
+  myObject.myProperty = "Hi"; // Output: Value must be longer than 5 characters.
+  ```
+
+### NOTE 
+- ***a 'set' accessor canot hava a return type annotation***
+
+#### private methods :-
+
+- example 
+```typescript 
+  class Tokens{
+    private deleteToken(){
+            console.log("delete")
+    }
+  }
+  const dlt = new Tokens()
+
+  dlt.deleteToken()
+
+// Property 'deleteToken' is private and only accessible within class 'Tokens'.
+
+  ```
+
+  getter and setters are designed so that any private method can be exposed outside but with some additional restrictions 
+
+## class inheritance and protected access modifier 
+
+
+- **In `TypeScript`, you can use the `extends` keyword to create a class that inherits from another class. This is known as class `inheritance`. The derived class (subclass or child class) inherits properties and methods from the base class (superclass or parent class).**
+---
+
+**its only extends the properties and methods that are public or marked as protected in superclass** 
+
+---
+
+```typescript 
+
+  class secondClass extends MyClass{
+    myProperties(){
+        this._myProperty = "house"
+    }
+  }
+```
+Error: Property '_myProperty' is private and only accessible within class 'MyClass'.
+Trying to access the private member directly will result in a compilation error. this._myProperty = "house";
+
+Instead, use the public interface provided by the getter and setter:
+    `this.myProperty = "house";`
+or we just add a `protected` keyword  to access `_myproperty`
+in child class 
+
+- Protected properties and methods of the base class are accessible in the derived class.
+- They are not directly accessible outside the base class or the derived class.
+
+## abstract classes 
+
+if we declare a class as `abstract` class no new object can be created form this class , they are excatly the blue print for creating an object we need to `extend` it's the responsibilty to create object from this class as `abstract` class we can declare abstract method , abstract function don't have any defination 
+
+---
+```ts
+abstract class takePhoto{
+    constructor(
+        public cameraMode : string,
+        public takePhoto: string
+    ){}
+    
+    abstract getToken (): void 
+
+    getreeltime():number{
+        return 8
+    }
+}
+
+class instagram extends takePhoto{
+    getToken(): void {
+        console.log("token is =");
+    }
+    constructor(
+        public  cameraMode: string,
+        public takePhoto : string,
+        public burstPhoto : number,
+    ) {
+        super(cameraMode,takePhoto)
+    }
+
+}
+const sukh = new instagram("vivid","click",3)
+
+```
+---
+
+the `super()` keyword is used to call the constructor of the base class (`takePhoto`) within the constructor of the derived class (`Instagram`). This is necessary to ensure that the properties of the base class are properly initialized when creating an instance of the derived class.
