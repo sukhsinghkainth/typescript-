@@ -893,3 +893,62 @@ const sukh = new instagram("vivid","click",3)
 ---
 
 the `super()` keyword is used to call the constructor of the base class (`takePhoto`) within the constructor of the derived class (`Instagram`). This is necessary to ensure that the properties of the base class are properly initialized when creating an instance of the derived class.
+
+
+## Generics 
+
+Generics in programming refer to a feature that allows you to write functions, classes, and interfaces in a way that they can work with different data types while maintaining type safety. Generics enable you to create flexible and reusable components that can work with a variety of data types without sacrificing type checking at compile time.
+
+#### advantage of using the generics over any is because once we pass the value type is locked for the reference like if i give number as an input the value function accepting is going to be a number and return type also becomes a number automaticlly 
+
+##### syntax for generics funtions :-
+
+```typescript
+const indentity = <T>(val:T):T => {
+  return val ;
+}
+indentity(3)
+indentity("3")
+```
+
+if you want to pass your own data types how we can pass lets' see in the following example 
+
+```typescript 
+interface whatsApp {
+    messeage: string,
+    time : number
+}
+
+indentity<whatsApp>({messeage:"hello",time:22.22})
+
+```
+
+more on return type and parameters 
+
+```typescript 
+function getKey<t>(val: t[]):t{
+    return val[1]
+}
+```
+arrow function syntax 
+
+```typescript 
+const getName = <t>(n: t[]): t => {
+    return n[1]
+}
+```
+
+if we are using array as an argument we can use array methods as well 
+
+```typescript
+const getData = <T, V>(value: T, value2: V): object => {
+    return {
+        value
+        , value2
+    }
+}
+
+getData(3,"4")
+```
+
+The function `getData` you provided is a generic function in TypeScript, and it takes two parameters of types `T` and `V`, respectively. The function returns an object with properties named `value` and `value2`, using the parameters passed to the function.
