@@ -952,3 +952,226 @@ getData(3,"4")
 ```
 
 The function `getData` you provided is a generic function in TypeScript, and it takes two parameters of types `T` and `V`, respectively. The function returns an object with properties named `value` and `value2`, using the parameters passed to the function.
+
+
+ ## Utility classes 
+
+ In TypeScript, utility types are predefined generic types that provide common and helpful transformations on types. These utility types can simplify and enhance your ability to work with types in a more expressive and concise way. TypeScript comes with several built-in utility types that you can use. Here are some commonly used utility types:
+
+ ### Partial utility 
+
+ he `Partial<T>` utility type makes all properties of a type optional by creating a new type with the same properties, but each one marked as optional (`?`).
+
+- **example**
+
+```typescript 
+interface assignment {
+    name: string,
+    grade: string,
+    className: string
+}
+
+const createAssignment = (arg: assignment, Update:
+    Partial<assignment>): assignment => {
+    return { ...arg, ...Update }
+}
+
+const update: assignment = {
+    name: "sukh", grade: "a", className: "mca"
+}
+
+console.log(createAssignment(update, { className: "123" ,name : "sukhpreet"}));
+
+```
+
+Explanation:
+
+1. The `assignment` interface defines a structure for objects with `name`, `grade`, and `className` properties.
+
+2. The `createAssignment` function takes an initial assignment object (`arg`) and an object of partial updates (`Update`). The `Partial<assignment>` utility type is used to make all properties of `assignment` optional.
+
+3. Inside the function, the spread (`...`) operator is used to merge the properties of `arg` and `Update` into a new object, effectively updating the properties specified in `Update`.
+
+4. The `update` object is an instance of `assignment` with initial values.
+
+5. The `createAssignment` function is called with the `update` object and an object specifying partial updates (`{ className: "123", name: "sukhpreet" }`).
+
+6. The resulting object is logged to the console.
+
+## Required<T>
+
+The Required<T> utility type makes all properties of a type required by creating a new type with the same properties, but without any optionality.
+
+- **example** :- 
+
+```typescript 
+
+interface PartialPerson {
+    name?: string;
+    age?: number;
+  }
+  
+  const requiredPerson: Required<PartialPerson> = {
+    name: "John",
+    age: 30,
+  };
+  ```
+
+Explanation:
+
+1. `PartialPerson` is an interface with optional properties. The `?` after each property indicates that the properties may be present or absent.
+
+2. The `Required<T>` utility type is used to create a new type where all properties of `T` are required. In this case, it transforms `PartialPerson` into a type where both `name` and `age` are required.
+
+3. `requiredPerson` is an instance of the transformed type, where both `name` and `age` are provided with values.
+
+
+This pattern can be useful in scenarios where you want to ensure that certain properties are always present in an object while allowing other properties to be optional.
+
+
+## Readonly utillity 
+
+- The Readonly<T> utility type makes all properties of a type read-only.
+
+- **example** :
+
+```typescript 
+
+interface googlePay{
+    UPI_id:string,
+    balance : number
+    
+}
+
+const  payment : Readonly<googlePay> = {
+    UPI_id:"123",
+    balance : 24
+}
+
+//error Cannot assign to 'UPI_id' because it is a read-only property.
+payment.UPI_id = "123"
+
+```
+
+## Record <K,T>
+
+The `Record<K, T>` utility type creates a type with specified keys of type K and values of type T.
+
+**example**
+```ts
+type Car = "maruti" | "scorpio" | "SUV";
+const carPrices: Record<Car, number> = {
+    maruti: 20000,
+    scorpio: 18000,
+    SUV: 30000,
+};
+```
+This means it's a mapping where the keys are from the Car type, and the values are of type `number`. In this specific example, it represents the prices of different car models.
+
+## Pick <T, K>
+
+The `Pick<T, K>` utility type creates a type by picking only the specified properties K from the type T.
+
+- `Pick` only refers to a type, but is being used as a value here.
+
+```typescript 
+interface person {
+    name :string,
+    age: number,
+    address : string
+}
+
+type PersonAddress = Pick<person, "address">
+
+// PersonAddress has only address properties 
+
+```
+## Omit<T,K>
+
+The Omit<T, K> utility type creates a type by omitting the specified properties K from the type T.
+
+'Omit' only refers to a type
+
+- example : -
+
+```ts
+
+interface person {
+    name :string,
+    age: number,
+    address : string
+}
+
+type OmitProperties = Omit<person, "address">
+
+// omitproperties hass all the properties 
+
+// axcept "address "
+
+const Student : OmitProperties = {
+    name :"sukh",
+    age:18
+}
+```
+
+Explanation:
+
+1. The `Person` interface defines a type with three properties: `name`, `age`, and `address`.
+
+2. The `Omit<Person, "address">` type is created using the `Omit` utility type, specifying that you want to omit the `"address"` property from the `Person` type. This results in a type without the specified property.
+
+3. The `student` object is then declared with the type `OmitProperties`, which means it should have the properties of `Person` except for the omitted `"address"` property.
+
+This is useful when you want to create a new type that is similar to an existing type but without certain properties. It helps maintain type safety and avoids redundancy when dealing with different variations of a type.
+
+## Exclude<T, U>
+
+The Exclude<T, U> utility type excludes from T those types that are assignable to U.
+
+- example : -
+
+```typescript 
+
+
+type Shape = "circle" | "square" | "triangle" | "rectangle";
+
+// Exclude specific shapes from the union
+type NonCircularShapes = Exclude<Shape, "circle">;
+
+const myShape: NonCircularShapes = "square"; // Valid
+
+const myShape: NonCircularShapes = "circle"; 
+// Error: Type '"circle"' is not assignable to type 'NonCircularShapes'
+
+```
+
+Explanation:
+
+1. The `Shape` type is a union type representing different shapes: "circle", "square", "triangle", and "rectangle".
+
+2. The `Exclude<Shape, "circle">` type is created using the `Exclude` utility type to exclude the shape "circle" from the union. The resulting type is `NonCircularShapes`, representing all shapes except for "circle".
+
+3. The `myShape` variable is declared with the type `NonCircularShapes`, allowing assignment of values that are not "circle". Attempting to assign "circle" will result in a type error.
+
+This usage pattern is helpful when you want to create more specialized types by excluding specific members from a union type. It enhances type safety and expressiveness in your code.
+
+## ReturnType<T>
+
+The ReturnType<T> utility type extracts the return type of a function type.
+
+
+```typescript 
+
+const fun = ():number=>{
+return 2
+}
+
+type result = ReturnType<typeof fun>
+
+```
+
+- The fun constant is assigned a function expression that takes no arguments and returns a number.
+
+- The ReturnType<typeof fun> type is used to extract the return type of the fun function. In this case, it results in the type number.
+
+- The ResultType type is then assigned the return type of the fun function, which is number in this example.
